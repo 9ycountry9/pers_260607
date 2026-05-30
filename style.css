@@ -5,6 +5,8 @@
     --highlight-color: #000;
     --secondary-text-color: #888;
     --card-border-color: #e0e0e0;
+    --alert-bg-color: #fff5f5;
+    --alert-border-color: #e53e3e;
 }
 
 body {
@@ -23,7 +25,7 @@ a {
     color: inherit;
 }
 
-ul {
+ul, dl {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -193,8 +195,69 @@ main {
     margin-bottom: 20px;
 }
 
-.guide-content p {
+.guide-content > p {
     font-size: 16px;
     line-height: 1.8;
     color: var(--text-color);
+}
+
+.guide-content .content-block {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--card-border-color);
+}
+
+.guide-content .content-block h3 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.guide-content .alert-block {
+    background-color: var(--alert-bg-color);
+    border-left: 5px solid var(--alert-border-color);
+}
+
+.guide-content .alert-block ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.guide-content .alert-block li {
+    margin-bottom: 10px;
+}
+
+.guide-content .concentration-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.guide-content .concentration-list dt {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--highlight-color);
+    margin-bottom: 5px;
+}
+
+.guide-content .concentration-list dd {
+    margin-left: 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--card-border-color);
+}
+
+.guide-content .concentration-list dd strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--secondary-text-color);
+}
+
+.guide-content .concentration-list dd p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
 }
