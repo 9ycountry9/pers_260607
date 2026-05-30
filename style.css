@@ -1,4 +1,3 @@
-
 :root {
     --background-color: #f8f8f8;
     --text-color: #333;
@@ -14,32 +13,22 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
+    line-height: 1.5; /* 가독성을 위해 추가 */
 }
 
-.guide-page {
-    padding: 0 20px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul, dl {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+a { text-decoration: none; color: inherit; }
+ul, dl { list-style: none; margin: 0; padding: 0; }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24x 56px;
+    padding: 24px 56px; /* 오타 수정: 24x -> 24px */
     background-color: white;
     border-bottom: 1px solid var(--card-border-color);
 }
 
+/* 로고 스타일 보강 */
 .logo a {
     font-family: 'Inter', 'Pretendard', sans-serif;
     font-size: 26px;
@@ -70,20 +59,23 @@ nav a.active {
     gap: 20px;
 }
 
-.icons img {
+/* Lucide 아이콘 색상 및 크기 조정 */
+.icons i {
     width: 20px;
     height: 20px;
+    stroke: var(--text-color);
 }
 
 main {
     padding: 40px;
 }
 
+/* Hero 섹션 반응형 수정 */
 .hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
-    gap: 80px;
+    gap: 40px;
     margin-bottom: 80px;
     background-color: white;
     padding: 60px;
@@ -96,7 +88,7 @@ main {
 }
 
 .hero-text h1 {
-    font-size: 96px;
+    font-size: clamp(40px, 8vw, 96px); /* 화면 크기에 따라 글자 크기 자동 조절 */
     font-weight: bold;
     margin: 0;
     line-height: 1;
@@ -121,7 +113,7 @@ main {
 /* Slideshow */
 .slideshow-container {
     position: relative;
-    height: 400px; /* Adjust as needed */
+    height: 400px;
 }
 
 .slideshow-image {
@@ -130,7 +122,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* or 'cover' */
+    object-fit: contain;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -139,11 +131,11 @@ main {
     opacity: 1;
 }
 
+/* 기능 카드 그리드 수정 */
 .features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    text-align: left;
 }
 
 .feature-card {
@@ -179,12 +171,12 @@ main {
     align-self: flex-end;
 }
 
-/* Guide Page Styles */
+/* Guide Page 레이아웃 수정 */
 .guide-container {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 60px;
-    padding: 40px;
+    padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -213,7 +205,7 @@ main {
 
 .guide-content section {
     margin-bottom: 80px;
-    scroll-margin-top: 40px; /* Offset for sticky nav */
+    scroll-margin-top: 40px;
 }
 
 .guide-content h2 {
@@ -229,81 +221,20 @@ main {
 
 .definition-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     align-items: center;
 }
 
 .definition-text p {
-    margin-bottom: 20px; /* Add space between paragraphs */
-}
-
-.definition-text p:last-child {
-    margin-bottom: 0;
-}
-
-.definition-image img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.guide-content .content-block {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
     margin-bottom: 20px;
-    border: 1px solid var(--card-border-color);
 }
 
-.guide-content .content-block h3 {
-    font-size: 20px;
-    margin: 0 0 10px 0;
-}
-
-.guide-content .alert-block {
-    background-color: var(--alert-bg-color);
-    border-left: 5px solid var(--alert-border-color);
-}
-
-.guide-content .alert-block ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 15px;
-}
-
-.guide-content .alert-block li {
-    margin-bottom: 10px;
-}
-
-.guide-content .concentration-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.guide-content .concentration-list dt {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--highlight-color);
-    margin-bottom: 5px;
-}
-
-.guide-content .concentration-list dd {
-    margin-left: 0;
-    padding-left: 20px;
-    border-left: 3px solid var(--card-border-color);
-}
-
-.guide-content .concentration-list dd strong {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: normal;
-    color: var(--secondary-text-color);
-}
-
-.guide-content .concentration-list dd p {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.7;
+@media (max-width: 768px) {
+    .guide-container {
+        grid-template-columns: 1fr;
+    }
+    .hero { padding: 30px; }
+    header { padding: 20px; }
+    .slideshow-container { height: 300px; }
 }
