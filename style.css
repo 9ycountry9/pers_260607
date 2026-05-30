@@ -201,6 +201,18 @@ main {
     color: var(--text-color);
 }
 
+.definition-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.definition-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
 .guide-content .content-block {
     background-color: white;
     padding: 25px;
