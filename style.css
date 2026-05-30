@@ -23,7 +23,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 56px; /* 오타 수정: 24x -> 24px */
+    padding: 28px 56px; /*24px*/
     background-color: white;
     border-bottom: 1px solid var(--card-border-color);
 }
@@ -31,9 +31,9 @@ header {
 /* 로고 스타일 보강 */
 .logo a {
     font-family: 'Inter', 'Pretendard', sans-serif;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     color: var(--highlight-color);
 }
 .logo a span {
@@ -46,7 +46,8 @@ nav ul {
 }
 
 nav a {
-    font-size: 16px;
+    font-size: 16px; /*17*/
+    font-weight: 500;
     color: var(--text-color);
 }
 
@@ -61,8 +62,8 @@ nav a.active {
 
 /* Lucide 아이콘 색상 및 크기 조정 */
 .icons i {
-    width: 20px;
-    height: 20px;
+    width: 22px; /*20*/
+    height: 22px;
     stroke: var(--text-color);
 }
 
@@ -73,7 +74,7 @@ main {
 /* Hero 섹션 반응형 수정 */
 .hero {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: grid-template-columns: 1fr 1fr;/*repeat(auto-fit, minmax(300px, 1fr));*/
     align-items: center;
     gap: 40px;
     margin-bottom: 80px;
@@ -134,7 +135,7 @@ main {
 /* 기능 카드 그리드 수정 */
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr) /*repeat(auto-fit, minmax(280px, 1fr));*/
     gap: 20px;
 }
 

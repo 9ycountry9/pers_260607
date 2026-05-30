@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    lucide.createIcons();
     // --- 향수 가이드 페이지 스크립트 ---
     const sections = document.querySelectorAll(".guide-content section");
     const navLinks = document.querySelectorAll(".sub-nav a");
