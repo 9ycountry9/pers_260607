@@ -7,6 +7,7 @@
     <title>pers.</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
@@ -23,9 +24,12 @@
             </ul>
         </nav>
         <div class="icons">
-            <a href="#"><img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/search-icon.png" alt="Search"></a>
-            <a href="#"><img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/bookmark-icon.png" alt="Bookmark"></a>
-            <a href="#"><img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/user-icon.png" alt="User"></a>
+            <a href="#"><i data-lucide="search"></i></a>
+            <a href="#"><i data-lucide="bookmark"></i></a>
+            <a href="#"><i data-lucide="user"></i></a>
+            <script>
+                lucide.createIcons();
+                </script>
         </div>
     </header>
     <main>
