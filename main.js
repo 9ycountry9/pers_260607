@@ -1,43 +1,48 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // --- 향수 가이드 페이지 스크립트 ---
+    const sections = document.querySelectorAll(".guide-content section");
+    const navLinks = document.querySelectorAll(".sub-nav a");
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Check if it's the guide page
-    const subNav = document.querySelector('.sub-nav');
-    if (!subNav) return;
+    if (sections.length > 0 && navLinks.length > 0) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href").substring(1) === entry.target.id) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
 
-    const sections = document.querySelectorAll('.guide-content section');
-    const navLinks = document.querySelectorAll('.sub-nav a');
-
-    // Smooth scroll for sub-nav links
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 60, // Adjust for header height
-                    behavior: 'smooth'
-                });
-            }
+        sections.forEach(section => {
+            observer.observe(section);
         });
-    });
 
-    // Scroll Spy
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
+        navLinks.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute("href");
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: "smooth" });
+                }
+            });
         });
-    }, { rootMargin: '-50% 0px -50% 0px' });
+    }
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    // --- 메인 페이지 슬라이드쇼 스크립트 ---
+    const slideshowContainer = document.querySelector('.slideshow-container');
+    if (slideshowContainer) {
+        const images = slideshowContainer.querySelectorAll('.slideshow-image');
+        let currentImageIndex = 0;
+
+        setInterval(() => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }, 5000); // 5초마다 변경
+    }
 });
