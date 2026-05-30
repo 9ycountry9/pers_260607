@@ -1,1 +1,144 @@
-/* Add styles here */
+
+:root {
+    --background-color: #f8f8f8;
+    --text-color: #333;
+    --highlight-color: #000;
+    --secondary-text-color: #888;
+    --card-border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons img {
+    width: 20px;
+    height: 20px;
+}
+
+main {
+    padding: 40px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 80px;
+    background-color: white;
+    padding: 60px;
+}
+
+.hero-text .lead {
+    font-size: 36px;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+.hero-text h1 {
+    font-size: 96px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    color: var(--secondary-text-color);
+}
+
+.hero-text .highlight {
+    color: var(--highlight-color);
+}
+
+.hero-text p:last-child {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card h2 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.feature-card h2 span {
+    color: var(--secondary-text-color);
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--secondary-text-color);
+    flex-grow: 1;
+}
+
+.feature-card a {
+    font-size: 24px;
+    margin-top: 20px;
+    align-self: flex-end;
+}

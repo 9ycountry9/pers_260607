@@ -1,14 +1,58 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pers.</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <div class="logo"><a href="#">pers.</a></div>
+        <nav>
+            <ul>
+                <li><a href="#">향수란?</a></li>
+                <li><a href="#">향수 알아보기</a></li>
+                <li><a href="#">커뮤니티</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#"><img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/search-icon.png" alt="Search"></a>
+            <a href="#"><img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/bookmark-icon.png" alt="Bookmark"></a>
+            <a href="#"><img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/user-icon.png" alt="User"></a>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="lead">for your</p>
+                <h1><span class="highlight">pers</span>onality</h1>
+                <p>당신의 개성을 완성하는 향,<br>pers에서 찾아보세요.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/perfume-image.png" alt="Perfume bottle">
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature-card">
+                <h2><span>01</span> 향수란?</h2>
+                <p>향수의 기본 정보부터 올바른 사용법까지</p>
+                <a href="#">→</a>
+            </div>
+            <div class="feature-card">
+                <h2><span>02</span> 향수 알아보기</h2>
+                <p>다양한 향수와 향을 검색하고 추천받아보세요</p>
+                <a href="#">→</a>
+            </div>
+            <div class="feature-card">
+                <h2><span>03</span> 커뮤니티</h2>
+                <p>후기, 질문, 향수 자랑까지 함께 나눠보세요</p>
+                <a href="#">→</a>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
 </body>
 </html>
