@@ -1,120 +1,435 @@
-:root {
-    --background-color: #f8f8f8;
-    --text-color: #333;
-    --highlight-color: #000;
-    --secondary-text-color: #888;
-    --card-border-color: #e0e0e0;
-    --alert-bg-color: #fff5f5;
-    --alert-border-color: #e53e3e;
-}
-
+/* General Styles */
 body {
-    font-family: 'Pretendard', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    line-height: 1.5; /* 가독성을 위해 추가 */
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-a { text-decoration: none; color: inherit; }
-ul, dl { list-style: none; margin: 0; padding: 0; }
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #555;
+}
+
+.highlight {
+    color: #000; /* pers. */
+}
+
+.sub-highlight {
+    color: #888; /* onality */
+}
+
+
+/* Header Styles */
 header {
+    background: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: #e8e8e8 1px solid;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 56px; /*24px*/
-    background-color: white;
-    border-bottom: 1px solid var(--card-border-color);
+    padding: 0 5%;
 }
 
-/* 로고 스타일 보강 */
-.logo a {
-    font-family: 'Inter', 'Pretendard', sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    color: var(--highlight-color);
-}
-.logo a span {
-    color: #999;
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
 }
 
-nav ul {
-    display: flex;
-    gap: 40px;
-}
-
-nav a {
-    font-size: 16px; /*17*/
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-nav a.active {
+header .logo a {
+    color: #333;
     font-weight: bold;
 }
 
-.icons {
-    display: flex;
-    gap: 20px;
-}
-
-/* Lucide 아이콘 색상 및 크기 조정 */
-.icons i {
-    width: 22px; /*20*/
-    height: 22px;
-    stroke: var(--text-color);
-}
-
-main {
-    padding: 40px;
-}
-
-/* Hero 섹션 반응형 수정 */
-.hero {
-    display: grid;
-    grid-template-columns: grid-template-columns: 1fr 1fr;/*repeat(auto-fit, minmax(300px, 1fr));*/
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 80px;
-    background-color: white;
-    padding: 60px;
-}
-
-.hero-text .lead {
-    font-size: 36px;
-    color: var(--secondary-text-color);
+header nav ul {
+    padding: 0;
     margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #333;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+header nav ul li a:hover {
+    color: #000;
+}
+
+
+/* Hero Section Styles */
+.hero {
+    min-height: 600px;
+    background: url('https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/hero-background.png') no-repeat 0 -300px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack text and image */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    position: relative; /* Needed for absolute positioning of overlay */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-text {
+    z-index: 2; /* Ensure text is above the overlay */
+    max-width: 800px; /* Limit text width */
+    margin-bottom: 30px; /* Space between text and image */
+}
+
+.hero-text p.lead {
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 .hero-text h1 {
-    font-size: clamp(40px, 8vw, 96px); /* 화면 크기에 따라 글자 크기 자동 조절 */
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-text h1 .highlight {
+    color: #fff; /* White highlight for personality */
     font-weight: bold;
-    margin: 0;
-    line-height: 1;
-    color: var(--secondary-text-color);
 }
 
-.hero-text .highlight {
-    color: var(--highlight-color);
-}
-
-.hero-text p:last-child {
-    font-size: 18px;
-    margin-top: 20px;
+.hero-text p {
+    font-size: 20px;
+    line-height: 1.5;
 }
 
 .hero-image {
-    max-width: 100%;
+    z-index: 2; /* Ensure image is above the overlay */
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
     height: auto;
-    border-radius: 8px;
 }
 
-/* Slideshow */
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+}
+
+
+/* Category Section Styles */
+.category-section {
+    padding: 60px 5%; /* Adjusted padding */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px; /* Space between content and image */
+    background-color: #fff; /* White background for sections */
+    margin-bottom: 30px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.category-section:nth-child(even) {
+    flex-direction: row-reverse; /* Alternate layout for even sections */
+}
+
+.category-content {
+    flex: 1; /* Allow content to grow */
+    text-align: left; /* Align text to the left */
+}
+
+.category-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-align: left; /* Align heading to the left */
+    color: #000; /* Dark heading color */
+}
+
+.category-content p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.category-content .cta-button {
+    display: inline-block;
+    background-color: #000; /* Black button */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Space above button */
+}
+
+.category-content .cta-button:hover {
+    background-color: #333; /* Darker on hover */
+    color: #fff;
+}
+
+.category-image {
+    flex: 1; /* Allow image to grow */
+    text-align: center; /* Center image */
+}
+
+.category-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for image */
+}
+
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* --- Perfume Guide Page Specific Styles --- */
+
+/* Hero Section (Perfume Guide) */
+.perfume-hero {
+    min-height: 400px;
+    background: url('https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/perfume-guide-hero.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.perfume-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.perfume-hero-text {
+    z-index: 2;
+    padding: 20px;
+}
+
+.perfume-hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.perfume-hero-text p {
+    font-size: 20px;
+}
+
+/* Search/Filter Section */
+.search-filter-section {
+    padding: 40px 5%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: -50px; /* Bring section up */
+    position: relative;
+    z-index: 3; /* Ensure it's above hero background */
+    display: flex;
+    justify-content: space-around; /* Distribute icons */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.search-filter-section .icon-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    margin: 10px 20px;
+    cursor: pointer; /* Indicate clickability */
+    color: #555; /* Default icon color */
+    transition: color 0.3s ease;
+}
+
+.search-filter-section .icon-container:hover {
+    color: #000; /* Darker on hover */
+}
+
+.search-filter-section .icon-container i {
+    width: 24px; /* Ensure consistent icon size */
+    height: 24px;
+}
+
+/* Perfumes List Section */
+.perfumes-list {
+    padding: 40px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.perfume-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to fill space */
+}
+
+.perfume-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.perfume-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.perfume-info {
+    padding: 15px;
+    flex-grow: 1; /* Allows info to take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes details to bottom if needed */
+}
+
+.perfume-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: left; /* Align name to the left */
+}
+
+.perfume-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.perfume-info .price {
+    font-weight: bold;
+    color: #000;
+    font-size: 16px;
+    margin-top: auto; /* Pushes price to the bottom */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+
+    header .logo {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .category-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .category-section:nth-child(even) {
+        flex-direction: column; /* Stack sections vertically on mobile */
+    }
+
+    .category-content, .category-image {
+        flex: none; /* Remove flex grow */
+        width: 100%; /* Full width */
+    }
+
+    .category-content {
+        order: 2; /* Content below image */
+    }
+
+    .category-image {
+        order: 1; /* Image above content */
+        margin-bottom: 20px; /* Space between image and content */
+    }
+
+    .search-filter-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-filter-section .icon-container {
+        margin: 10px 0;
+    }
+
+    .perfumes-list {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+/* Slideshow styles */
 .slideshow-container {
     position: relative;
-    height: 400px;
+    margin: 0 auto; /* Center the slideshow */
 }
 
 .slideshow-image {
@@ -123,119 +438,12 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    object-fit: cover; /* Ensures image covers the container */
 }
 
 .slideshow-image.active {
     opacity: 1;
 }
-
-/* 기능 카드 그리드 수정 */
-.features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr) /*repeat(auto-fit, minmax(280px, 1fr));*/
-    gap: 20px;
-}
-
-.feature-card {
-    background-color: white;
-    padding: 30px;
-    border: 1px solid var(--card-border-color);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-}
-
-.feature-card h2 {
-    font-size: 20px;
-    margin: 0 0 10px 0;
-}
-
-.feature-card h2 span {
-    color: var(--secondary-text-color);
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.feature-card p {
-    margin: 0;
-    color: var(--secondary-text-color);
-    flex-grow: 1;
-}
-
-.feature-card a {
-    font-size: 24px;
-    margin-top: 20px;
-    align-self: flex-end;
-}
-
-/* Guide Page 레이아웃 수정 */
-.guide-container {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 60px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.sub-nav {
-    position: sticky;
-    top: 40px;
-    height: fit-content;
-}
-
-.sub-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.sub-nav a {
-    font-size: 16px;
-    color: var(--secondary-text-color);
-}
-
-.sub-nav a.active {
-    font-weight: bold;
-    color: var(--highlight-color);
-}
-
-.guide-content section {
-    margin-bottom: 80px;
-    scroll-margin-top: 40px;
-}
-
-.guide-content h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.guide-content > p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--text-color);
-}
-
-.definition-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    align-items: center;
-}
-
-.definition-text p {
-    margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-    .guide-container {
-        grid-template-columns: 1fr;
-    }
-    .hero { padding: 30px; }
-    header { padding: 20px; }
-    .slideshow-container { height: 300px; }
-}
+/* --- End of Perfume Guide Page Specific Styles --- */
