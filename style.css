@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Pretendard', sans-serif; /* Using Pretendard font */
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -60,6 +60,11 @@ header .logo a {
     font-weight: bold;
 }
 
+header .logo a span {
+    color: #888; /* Color for the dot */
+}
+
+
 header nav ul {
     padding: 0;
     margin: 0;
@@ -69,6 +74,7 @@ header nav ul {
 
 header nav ul li {
     margin-left: 20px;
+    position: relative; /* Needed for the hover effect */
 }
 
 header nav ul li a {
@@ -76,10 +82,31 @@ header nav ul li a {
     text-transform: uppercase;
     font-size: 16px;
     padding: 5px 0;
+    position: relative;
+    display: inline-block; /* Needed for the pseudo-element */
+}
+
+/* Style for the yellow star and underline on hover for navigation */
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Position below the text */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px; /* Width of the star */
+    height: 10px; /* Height of the star */
+    background-color: yellow; /* Yellow color for the star */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
 }
 
 header nav ul li a:hover {
     color: #000;
+}
+
+header nav ul li a:hover::after {
+    opacity: 1; /* Show the star on hover */
 }
 
 
@@ -211,6 +238,138 @@ header nav ul li a:hover {
     max-width: 100%;
     height: auto;
     border-radius: 8px; /* Rounded corners for image */
+}
+
+
+/* --- Interactive Category Styles --- */
+/* Fashion Section */
+.fashion-category-interactive .category-content {
+    position: relative; /* For positioning the subcategories */
+}
+
+.fashion-title {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between title and potential icon */
+    cursor: pointer; /* Indicate it's interactive */
+}
+
+/* Add a yellow star icon next to the '패션' title */
+.fashion-title::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Size of the star */
+    height: 20px; /* Size of the star */
+    background-color: yellow; /* Yellow color */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    opacity: 1; /* Visible by default */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+/* Rotate the star when subcategories are shown */
+.fashion-category-interactive.open .fashion-title::before {
+    transform: rotate(45deg); /* Rotate the star */
+}
+
+/* Styles for the subcategories dropdown */
+.fashion-subcategories {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the title */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it's above other content */
+    min-width: 200px; /* Minimum width */
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Space between links */
+    margin-top: 5px; /* Small space from title */
+}
+
+.fashion-subcategories a {
+    font-size: 16px;
+    color: #555;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fashion-subcategories a:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    color: #000; /* Darker text on hover */
+}
+
+/* Show subcategories when the fashion section is open */
+.fashion-category-interactive.open .fashion-subcategories {
+    display: flex; /* Use flex for layout */
+}
+
+/* Perfume Section */
+.perfume-category-interactive .category-content {
+    position: relative; /* For positioning the subcategories */
+}
+
+.perfume-title {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between title and potential icon */
+    cursor: pointer; /* Indicate it's interactive */
+}
+
+/* Add a yellow star icon next to the '향수' title */
+.perfume-title::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Size of the star */
+    height: 20px; /* Size of the star */
+    background-color: yellow; /* Yellow color */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    opacity: 1; /* Visible by default */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+/* Rotate the star when subcategories are shown */
+.perfume-category-interactive.open .perfume-title::before {
+    transform: rotate(45deg); /* Rotate the star */
+}
+
+/* Styles for the subcategories dropdown */
+.perfume-subcategories {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the title */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it's above other content */
+    min-width: 200px; /* Minimum width */
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Space between links */
+    margin-top: 5px; /* Small space from title */
+}
+
+.perfume-subcategories a {
+    font-size: 16px;
+    color: #555;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.perfume-subcategories a:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    color: #000; /* Darker text on hover */
+}
+
+/* Show subcategories when the perfume section is open */
+.perfume-category-interactive.open .perfume-subcategories {
+    display: flex; /* Use flex for layout */
 }
 
 
@@ -447,3 +606,69 @@ footer {
     opacity: 1;
 }
 /* --- End of Perfume Guide Page Specific Styles --- */
+
+/* Interactive Category Styles */
+.category-section.perfume-category-interactive .category-content {
+    position: relative; /* For positioning the subcategories */
+}
+
+.perfume-title {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between title and potential icon */
+    cursor: pointer; /* Indicate it's interactive */
+}
+
+/* Add a yellow star icon next to the '향수' title */
+.perfume-title::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Size of the star */
+    height: 20px; /* Size of the star */
+    background-color: yellow; /* Yellow color */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    opacity: 1; /* Visible by default */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+/* Rotate the star when subcategories are shown */
+.perfume-category-interactive.open .perfume-title::before {
+    transform: rotate(45deg); /* Rotate the star */
+}
+
+/* Styles for the subcategories dropdown */
+.perfume-subcategories {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the title */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it's above other content */
+    min-width: 200px; /* Minimum width */
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Space between links */
+    margin-top: 5px; /* Small space from title */
+}
+
+.perfume-subcategories a {
+    font-size: 16px;
+    color: #555;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.perfume-subcategories a:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    color: #000; /* Darker text on hover */
+}
+
+/* Show subcategories when the perfume section is open */
+.perfume-category-interactive.open .perfume-subcategories {
+    display: flex; /* Use flex for layout */
+}
+/* --- End of Interactive Category Styles --- */
