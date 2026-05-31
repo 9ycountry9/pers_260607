@@ -6,6 +6,7 @@
     <title>pers. - Discover Your Style</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fashion.css"> <!-- Link to the new fashion CSS file -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -13,8 +14,8 @@
         <div class="logo"><a href="index.html">pers<span>.</span></a></div>
         <nav>
             <ul>
-                <li><a href="index.html">pers.</a></li>
-                <li><a href="#fashion">패션</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="fashion.html">패션</a></li> <!-- Link to fashion.html -->
                 <li><a href="perfume-guide.html">향수</a></li>
                 <li><a href="#nail">네일</a></li>
             </ul>
@@ -24,11 +25,8 @@
         <section class="hero">
             <div class="hero-text">
                 <p class="lead">for your</p>
-                <h1><span class="highlight">personality</span></h1>
-                <p>
-                당신만의 취향과 개성을 발견하는 공간.
-                <br>pers.에서 시작하세요.
-                </p>
+                <h1><span class="highlight">pers.</span><span class="sub-highlight">onality</span></h1>
+                <p>당신의 개성과 스타일을 완성하는 모든 것,<br>pers.에서 찾아보세요.</p>
             </div>
             <div class="hero-image slideshow-container">
                 <img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/perfume-image.png" alt="Perfume bottle 1" class="slideshow-image active">
@@ -40,9 +38,8 @@
         <!-- 패션 카테고리 섹션 -->
         <section id="fashion" class="category-section fashion-category-interactive">
             <div class="category-content">
-                <h2 class="fashion-title">패션</h2>
-                <div class="fashion-subcategories">
-                    <!-- Placeholder subcategories -->
+                <h2 class="interactive-title fashion-title">패션</h2>
+                <div class="subcategories fashion-subcategories">
                     <a href="#fashion-new-arrivals">New Arrivals</a>
                     <a href="#fashion-apparel">Apparel</a>
                     <a href="#fashion-accessories">Accessories</a>
@@ -50,7 +47,7 @@
                 </div>
                 <p>나에게 어울리는 스타일을 입어보기 전에 확인하세요.</p>
                 <p>체형과 취향을 기반으로 더 나은 선택을 제안합니다.</p>
-                <a href="#fashion" class="cta-button">패션 컬렉션 보기</a>
+                <a href="fashion.html" class="cta-button">패션 컬렉션 보기</a> <!-- Link to fashion.html -->
             </div>
             <div class="category-image">
                 <img src="https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/fashion-image.png" alt="Fashion items">
@@ -60,15 +57,15 @@
         <!-- 향수 카테고리 섹션 -->
         <section id="perfume" class="category-section perfume-category-interactive">
             <div class="category-content">
-                <h2 class="perfume-title">향수</h2>
-                <div class="perfume-subcategories">
+                 <h2 class="interactive-title perfume-title">향수</h2>
+                 <div class="subcategories perfume-subcategories">
                     <a href="#perfume-guide">향수 가이드</a>
                     <a href="#perfume-recommendations">추천 향수</a>
                     <a href="#perfume-usage">사용 팁</a>
                 </div>
                 <p>취향에 맞는 향을 발견하고 나만의 시그니처를 찾아보세요.</p>
                 <p>다양한 향수 정보와 나에게 맞는 향수를 찾는 가이드, 쉽고 직관적으로.</p>
-                <a href="perfume-guide.html" class="cta-button">향수 둘러보기</a>
+                <a href="perfume-guide.html" class="cta-button">향수 가이드 보기</a>
             </div>
             <div class="category-image">
                 <!-- 향수 관련 이미지 -->
@@ -81,7 +78,7 @@
             <div class="category-content">
                 <h2>네일</h2>
                 <p>디자인은 쉽게, 가격은 투명하게.</p>
-                <p>원하는 스타일을 찾고 아티스트와 편하게 연락하세요.</p>
+                <p>원하는 스타일을 찾고 아티스트와 편하게 연결하세요.</p>
                 <a href="#nail" class="cta-button">네일 디자인 보기</a>
             </div>
             <div class="category-image">

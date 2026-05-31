@@ -50,71 +50,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Initialize Lucide Icons for Perfume Guide Page ---
     if (typeof lucide !== 'undefined') {
-        const searchIconElement = document.querySelector('i[data-lucide="search"]');
-        if (searchIconElement) {
-            lucide.replace(searchIconElement, {
-                width: 24,
-                height: 24,
-                strokeWidth: 1.5
-            });
-        }
-
-        const bookmarkIconElement = document.querySelector('i[data-lucide="bookmark"]');
-        if (bookmarkIconElement) {
-            lucide.replace(bookmarkIconElement, {
-                width: 24,
-                height: 24,
-                strokeWidth: 1.5
-            });
-        }
-
-        const userIconElement = document.querySelector('i[data-lucide="user"]');
-        if (userIconElement) {
-            lucide.replace(userIconElement, {
-                width: 24,
-                height: 24,
-                strokeWidth: 1.5
-            });
-        }
+        // Replace icons if they exist in the DOM
+        lucide.replace('[data-lucide="search"]', { padding: true, width: 24, height: 24 });
+        lucide.replace('[data-lucide="bookmark"]', { padding: true, width: 24, height: 24 });
+        lucide.replace('[data-lucide="user"]', { padding: true, width: 24, height: 24 });
     } else {
         console.warn("Lucide icons library not loaded. Icon replacements will not occur.");
     }
 
-    // --- Interactive Fashion Category Functionality ---
-    const fashionCategory = document.querySelector('.fashion-category-interactive');
-    const fashionTitle = document.querySelector('.fashion-title');
-    const fashionSubcategories = document.querySelector('.fashion-subcategories');
+    // --- Interactive Category Functionality ---
+    const interactiveSections = [
+        { sectionClass: '.fashion-category-interactive', titleClass: '.fashion-title', subcategoriesClass: '.fashion-subcategories' },
+        { sectionClass: '.perfume-category-interactive', titleClass: '.perfume-title', subcategoriesClass: '.perfume-subcategories' }
+    ];
 
-    if (fashionTitle && fashionSubcategories && fashionCategory) {
-        fashionTitle.addEventListener('click', () => {
-            fashionCategory.classList.toggle('open');
-        });
+    interactiveSections.forEach(({ sectionClass, titleClass, subcategoriesClass }) => {
+        const section = document.querySelector(sectionClass);
+        const title = section ? section.querySelector(titleClass) : null;
+        const subcategories = section ? section.querySelector(subcategoriesClass) : null;
 
-        // Close subcategories if clicking outside of them
-        document.addEventListener('click', (event) => {
-            if (!fashionCategory.contains(event.target)) {
-                fashionCategory.classList.remove('open');
-            }
-        });
-    }
+        if (title && subcategories && section) {
+            title.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent event from bubbling up to document click listener
+                section.classList.toggle('open');
+            });
 
-    // --- Interactive Perfume Category Functionality ---
-    const perfumeCategory = document.querySelector('.perfume-category-interactive');
-    const perfumeTitle = document.querySelector('.perfume-title');
-    const perfumeSubcategories = document.querySelector('.perfume-subcategories');
-
-    if (perfumeTitle && perfumeSubcategories && perfumeCategory) {
-        perfumeTitle.addEventListener('click', () => {
-            perfumeCategory.classList.toggle('open');
-        });
-
-        // Close subcategories if clicking outside of them
-        document.addEventListener('click', (event) => {
-            if (!perfumeCategory.contains(event.target)) {
-                perfumeCategory.classList.remove('open');
-            }
-        });
-    }
+            // Close subcategories if clicking outside of the section
+            document.addEventListener('click', (event) => {
+                if (section && !section.contains(event.target)) {
+                    section.classList.remove('open');
+                }
+            });
+        }
+    });
 });
 
 // --- Firebase Initialization (Example) ---

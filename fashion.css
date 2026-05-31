@@ -1,0 +1,284 @@
+/* General Styles for Fashion Page */
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: #e8e8e8 1px solid;
+    display: flex;
+    justify-content: center; /* Center the navigation */
+    align-items: center;
+    padding: 0 5%;
+    position: relative; /* Needed for potential absolute positioning of elements */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    position: absolute; /* Position logo to the left */
+    left: 5%;
+}
+
+header .logo a {
+    color: #333;
+    font-weight: bold;
+}
+
+header .logo a span {
+    color: #888; /* Color for the dot */
+}
+
+header nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center the list items */
+}
+
+header nav ul li {
+    margin: 0 20px; /* Adjust margin for spacing */
+    position: relative;
+}
+
+header nav ul li a {
+    color: #333;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 5px 0;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+/* Hero Section Styles for Fashion Page */
+.hero {
+    min-height: 400px; /* Reduced height for consistency */
+    background: url('https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/fashion-hero.png') no-repeat center center; /* Fashion specific hero image */
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-text {
+    z-index: 2;
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 48px; /* Adjusted font size for page title */
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.hero-text p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* Content Section Styles */
+.content-section {
+    padding: 60px 5%;
+    background-color: #fff;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align content within sections */
+}
+
+.content-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.content-section p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.cta-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Fashion Specific Content */
+.fashion-recommendations, .style-quiz {
+    margin-top: 40px;
+}
+
+.fashion-recommendations h3, .style-quiz h3 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+}
+
+.fashion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.fashion-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fashion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.fashion-item img {
+    width: 100%;
+    height: 220px; /* Fixed height */
+    object-fit: cover;
+}
+
+.fashion-item-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fashion-item-info h4 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.fashion-item-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.fashion-item-info .price {
+    font-weight: bold;
+    color: #000;
+    font-size: 16px;
+    margin-top: auto;
+}
+
+/* Style Quiz Section */
+.style-quiz-content {
+    margin-top: 20px;
+}
+
+.style-quiz-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 5%;
+        justify-content: flex-start;
+    }
+
+    header .logo {
+        position: static;
+        margin-bottom: 10px;
+        left: auto;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero {
+        min-height: 300px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .content-section {
+        padding: 40px 5%;
+    }
+
+    .content-section h2 {
+        font-size: 30px;
+    }
+
+    .fashion-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+/* --- End of Fashion Page Styles --- */
+;
