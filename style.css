@@ -1,41 +1,12 @@
 /* General Styles */
 body {
-    font-family: 'Pretendard', sans-serif; /* Using Pretendard font */
+    font-family: 'Pretendard', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
 }
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-h1, h2, h3 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-a {
-    color: #333;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #555;
-}
-
-.highlight {
-    color: #000; /* pers. */
-}
-
-.sub-highlight {
-    color: #888; /* onality */
-}
-
 
 /* Header Styles */
 header {
@@ -44,41 +15,40 @@ header {
     min-height: 70px;
     border-bottom: #e8e8e8 1px solid;
     display: flex;
-    justify-content: center; /* Center the navigation */
+    justify-content: center;
     align-items: center;
     padding: 0 5%;
-    position: relative; /* Needed for potential absolute positioning of elements */
+    position: relative;
+    z-index: 10; /* Ensure header is above other content */
 }
 
 header .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
-    position: absolute; /* Position logo to the left */
+    position: absolute;
     left: 5%;
 }
 
 header .logo a {
     color: #333;
-    font-weight: bold;
+    text-decoration: none;
 }
 
 header .logo a span {
-    color: #888; /* Color for the dot */
+    color: #888;
 }
-
 
 header nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
-    justify-content: center; /* Center the list items */
+    justify-content: center;
 }
 
 header nav ul li {
-    margin: 0 20px; /* Adjust margin for spacing */
-    position: relative;
+    margin: 0 20px;
+    position: relative; /* For dropdown positioning */
 }
 
 header nav ul li a {
@@ -86,72 +56,95 @@ header nav ul li a {
     text-transform: uppercase;
     font-size: 16px;
     padding: 5px 0;
+    display: inline-block;
+    transition: font-weight 0.3s ease;
+    text-decoration: none;
     position: relative;
-    display: inline-block;
-    transition: color 0.3s ease; /* Smooth transition for color */
 }
 
-/* Interactive Title Styles (Replaces Star Icon) */
-.interactive-title {
-    cursor: pointer;
-    font-size: 36px; /* Increased size */
-    font-weight: bold; /* Bold text */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
-    display: inline-flex; /* Use inline-flex for alignment */
-    align-items: center; /* Vertically center text and potential icon/indicator */
-    gap: 10px; /* Space between text and indicator */
-}
-
-.interactive-title::after {
-    content: ''; /* Default empty content */
-    display: inline-block;
-    width: 12px; /* Size of the indicator */
-    height: 12px; /* Size of the indicator */
-    border: 2px solid #333; /* Style for the indicator */
-    border-radius: 50%; /* Makes it a circle */
-    margin-left: 10px; /* Space from the text */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-}
-
-.category-section.open .interactive-title::after {
-    background-color: #000; /* Filled black circle when open */
-    transform: scale(1.1); /* Slightly larger when open */
-}
-
-/* Styles for the subcategories dropdown */
-.subcategories {
-    display: none; /* Hidden by default */
+header nav ul li a::after {
+    content: '';
     position: absolute;
-    top: 100%; /* Position below the title */
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 50%;
+    background-color: #333;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
     left: 0;
-    background-color: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Ensure it's above other content */
-    min-width: 200px; /* Minimum width */
-    flex-direction: column; /* Stack links vertically */
-    gap: 10px; /* Space between links */
-    margin-top: 10px; /* Small space from title */
 }
 
-.subcategories a {
-    font-size: 16px;
-    color: #555;
-    padding: 8px 10px;
+
+/* Dropdown Menu */
+.dropdown .dropbtn {
+    cursor: default; /* Make it not look clickable */
+    font-weight: normal;
+    position: relative;
+}
+
+.dropdown:hover .dropbtn {
+    font-weight: bold;
+}
+
+/* Spray effect */
+.dropdown .dropbtn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: black;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.1),
+                0 0 30px 20px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+.dropdown:hover .dropbtn::after {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 1;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100; /* Increased z-index */
+    list-style: none;
+    padding: 10px 0;
+    margin-top: 10px; /* Space between button and dropdown */
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
 }
 
-.subcategories a:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
-    color: #000; /* Darker text on hover */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-transform: none;
+    font-weight: normal;
+    transition: background-color 0.3s ease;
 }
 
-/* Show subcategories when the section is open */
-.category-section.open .subcategories {
-    display: flex; /* Use flex for layout */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 
@@ -285,32 +278,6 @@ header nav ul li a {
     border-radius: 8px; /* Rounded corners for image */
 }
 
-
-/* --- Specific Interactive Category Styles --- */
-
-/* Fashion Section */
-.fashion-category-interactive .category-content {
-    position: relative; /* For positioning the subcategories */
-}
-
-.fashion-title {
-    font-size: 36px; /* Match interactive-title */
-}
-
-/* Perfume Section */
-.perfume-category-interactive .category-content {
-    position: relative; /* For positioning the subcategories */
-}
-
-.perfume-title {
-    font-size: 36px; /* Match interactive-title */
-}
-
-/* Nail Section (if it were interactive) */
-/* .nail-category-interactive .category-content { position: relative; } */
-/* .nail-title { font-size: 36px; } */
-
-
 /* Footer Styles */
 footer {
     text-align: center;
@@ -321,149 +288,16 @@ footer {
     font-size: 16px;
 }
 
-/* --- Perfume Guide Page Specific Styles --- */
-
-/* Hero Section (Perfume Guide) */
-.perfume-hero {
-    min-height: 400px;
-    background: url('https://storage.googleapis.com/spec-project-asset-manager-storage/bair-imlab-project-images/images/perfume-guide-hero.png') no-repeat center center;
-    background-size: cover;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
-.perfume-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: 1;
-}
-
-.perfume-hero-text {
-    z-index: 2;
-    padding: 20px;
-}
-
-.perfume-hero-text h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.perfume-hero-text p {
-    font-size: 20px;
-}
-
-/* Search/Filter Section */
-.search-filter-section {
-    padding: 40px 5%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: -50px; /* Bring section up */
-    position: relative;
-    z-index: 3; /* Ensure it's above hero background */
-    display: flex;
-    justify-content: space-around; /* Distribute icons */
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.search-filter-section .icon-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between icon and text */
-    margin: 10px 20px;
-    cursor: pointer; /* Indicate clickability */
-    color: #555; /* Default icon color */
-    transition: color 0.3s ease;
-}
-
-.search-filter-section .icon-container:hover {
-    color: #000; /* Darker on hover */
-}
-
-.search-filter-section .icon-container i {
-    width: 24px; /* Ensure consistent icon size */
-    height: 24px;
-}
-
-/* Perfumes List Section */
-.perfumes-list {
-    padding: 40px 5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.perfume-item {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pushes content to fill space */
-}
-
-.perfume-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.perfume-item img {
-    width: 100%;
-    height: 200px; /* Fixed height for images */
-    object-fit: cover; /* Ensures image covers the area without distortion */
-}
-
-.perfume-info {
-    padding: 15px;
-    flex-grow: 1; /* Allows info to take available space */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pushes details to bottom if needed */
-}
-
-.perfume-info h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 20px;
-    text-align: left; /* Align name to the left */
-}
-
-.perfume-info p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.perfume-info .price {
-    font-weight: bold;
-    color: #000;
-    font-size: 16px;
-    margin-top: auto; /* Pushes price to the bottom */
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         padding: 10px 5%;
-        justify-content: flex-start; /* Align items to the start on small screens */
+        justify-content: flex-start;
     }
 
     header .logo {
-        position: static; /* Reset absolute positioning */
+        position: static;
         margin-bottom: 10px;
         left: auto;
     }
@@ -475,85 +309,21 @@ footer {
         justify-content: flex-start;
     }
 
-    header nav ul li {
-        margin: 5px 0;
-    }
-
-    .hero {
-        min-height: 400px;
-    }
-
     .hero-text h1 {
         font-size: 40px;
     }
 
-    .hero-text p {
-        font-size: 16px;
-    }
-
     .category-section {
         flex-direction: column;
-        text-align: center;
     }
 
     .category-section:nth-child(even) {
-        flex-direction: column; /* Stack sections vertically on mobile */
-    }
-
-    .category-content, .category-image {
-        flex: none; /* Remove flex grow */
-        width: 100%; /* Full width */
-    }
-
-    .category-content {
-        order: 2; /* Content below image */
-    }
-
-    .category-image {
-        order: 1; /* Image above content */
-        margin-bottom: 20px; /* Space between image and content */
-    }
-
-    /* Adjustments for interactive titles on mobile */
-    .interactive-title {
-        font-size: 28px; /* Smaller font size on mobile */
-        gap: 8px;
-    }
-
-    .interactive-title::after {
-        width: 10px;
-        height: 10px;
-    }
-
-    .subcategories {
-        position: static; /* Remove absolute positioning */
-        width: 100%; /* Full width */
-        margin-top: 10px;
-        padding: 10px;
-    }
-
-    .subcategories a {
-        font-size: 14px;
-        padding: 6px 8px;
-    }
-
-    .search-filter-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .search-filter-section .icon-container {
-        margin: 10px 0;
-    }
-
-    .perfumes-list {
-        grid-template-columns: 1fr; /* Single column on mobile */
+        flex-direction: column; 
     }
 }
-/* Slideshow styles */
 .slideshow-container {
     position: relative;
-    margin: 0 auto; /* Center the slideshow */
+    margin: 0 auto; 
 }
 
 .slideshow-image {
@@ -564,40 +334,9 @@ footer {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    object-fit: cover; /* Ensures image covers the container */
+    object-fit: cover; 
 }
 
 .slideshow-image.active {
     opacity: 1;
 }
-/* --- End of Perfume Guide Page Specific Styles --- */
-/* --- End of General Styles --- */
-/* --- Specific Interactive Category Styles --- */
-.fashion-title, .perfume-title {
-    /* Inherits styles from .interactive-title */
-}
-
-/* Styles for the subcategories dropdown */
-.fashion-subcategories, .perfume-subcategories {
-    /* Inherits styles from .subcategories */
-}
-
-/* Style for the indicator of the interactive title */
-.interactive-title::after {
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    margin-left: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Make the indicator filled when the section is open */
-.category-section.open .interactive-title::after {
-    background-color: #000;
-    transform: scale(1.1);
-}
-/* --- End of Specific Interactive Category Styles --- */
-;
