@@ -3,29 +3,29 @@ body {
     font-family: 'Pretendard', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #fff; /* White background */
     color: #333;
-    line-height: 1.6;
 }
 
 /* Header Styles */
 header {
     background: #fff;
-    min-height: 70px;
-    border-bottom: #e8e8e8 1px solid;
+    height: 80px;
+    border-bottom: 1px solid #f0f0f0;
     display: flex;
-    justify-content: space-between; /* Adjusted for alignment */
+    justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header .logo a {
     color: #000;
     text-decoration: none;
-    font-size: 28px; /* Slightly larger */
-    font-weight: 700; /* Bold */
+    font-size: 24px;
+    font-weight: 700;
 }
 
 header nav ul {
@@ -33,44 +33,20 @@ header nav ul {
     margin: 0;
     list-style: none;
     display: flex;
-    justify-content: center;
 }
 
 header nav ul li {
-    margin: 0 25px; /* Increased spacing */
-    position: relative;
+    margin: 0 30px;
 }
 
 header nav ul li a {
-    color: #555; /* Slightly lighter text */
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 25px 0;
-    display: inline-block;
-    transition: color 0.3s ease;
+    color: #333;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
     position: relative;
-}
-
-header nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 20px;
-    left: 50%;
-    background-color: #000;
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #000;
-}
-
-header nav ul li a:hover::after {
-    width: 100%;
-    left: 0;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
 .header-icons {
@@ -79,92 +55,85 @@ header nav ul li a:hover::after {
 }
 
 .header-icons a {
-    margin-left: 20px;
+    margin-left: 25px;
     color: #333;
-}
-
-/* Dropdown Menu */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 100;
-    list-style: none;
-    padding: 10px 0;
-    margin-top: -5px;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: #555;
-    padding: 12px 16px;
     text-decoration: none;
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.dropdown-content a:hover {
-    background-color: #f5f5f5;
+.header-icons a:hover {
     color: #000;
 }
 
 /* Hero Section Styles */
 .hero {
-    min-height: calc(100vh - 90px);
-    background: #fff;
-    text-align: left;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0 10%;
+    justify-content: center;
+    padding: 80px 5%;
+    background-color: #fff;
+    min-height: calc(100vh - 81px); /* Full viewport height minus header */
+    box-sizing: border-box;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 5%;
 }
 
 .hero-text p.lead {
-    font-size: 24px;
-    margin-bottom: 5px;
-    color: #888;
+    font-size: 28px;
     font-weight: 400;
+    color: #888;
+    margin: 0;
 }
 
 .hero-text h1 {
-    font-size: 90px; /* Much larger font */
-    margin: 0;
+    font-size: 80px;
     font-weight: 400;
+    margin: 10px 0;
     line-height: 1.1;
 }
 
 .hero-text h1 .highlight {
-    font-weight: 700; /* Bold */
+    font-weight: 800;
     color: #000;
 }
 
 .hero-text h1 .sub-highlight {
-    color: #aaa; /* Light grey */
     font-weight: 400;
+    color: #b0b0b0;
 }
 
 .hero-text p {
     font-size: 18px;
-    margin-top: 25px;
     color: #666;
+    margin-top: 20px;
 }
 
 .hero-image {
-   margin-left: 5%;
+    flex: 1;
+    max-width: 40%;
+    text-align: center; /* Center the image within its container */
 }
 
 .hero-image img {
-    max-width: 350px;
+    max-width: 100%;
     height: auto;
 }
 
-/* Other sections remain unchanged... */
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #f9f9f9;
+    border-top: 1px solid #f0f0f0;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Lucide Icons */
+.lucide {
+    width: 22px;
+    height: 22px;
+}
