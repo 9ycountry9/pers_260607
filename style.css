@@ -1,157 +1,281 @@
-/* 기본 스타일 */
+:root {
+    --background-color: #f8f8f8;
+    --text-color: #333;
+    --highlight-color: #000;
+    --secondary-text-color: #888;
+    --card-border-color: #e0e0e0;
+    --alert-bg-color: #fff5f5;
+    --alert-border-color: #e53e3e;
+}
+
 body {
-    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
+    line-height: 1.5; /* 가독성을 위해 추가 */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; }
+ul, dl { list-style: none; margin: 0; padding: 0; }
 
-/* 헤더 */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 26px 20px;
-    border-bottom: 1px solid #eee;
-    background-color: #fff;
+    padding: 24px 56px; /* 오타 수정: 24x -> 24px */
+    background-color: white;
+    border-bottom: 1px solid var(--card-border-color);
 }
 
+/* 로고 스타일 보강 */
 .logo a {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #000;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--highlight-color);
 }
-
-.logo span {
-    color: #f06595; /* 포인트 컬러 */
+.logo a span {
+    color: #999;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+    gap: 40px;
 }
 
 nav a {
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-size: 16px;
+    color: var(--text-color);
 }
 
-nav a:hover {
-    color: #f06595;
+nav a.active {
+    font-weight: bold;
 }
 
-.user-actions a {
-    margin-left: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.icons {
+    display: flex;
+    gap: 20px;
 }
 
-.user-actions .cta {
-    background-color: #f06595;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+/* Lucide 아이콘 색상 및 크기 조정 */
+.icons i {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-color);
 }
 
-.user-actions .cta:hover {
-    background-color: #d6336c;
+main {
+    padding: 40px;
 }
 
-/* 히어로 섹션 */
+/* Hero 섹션 반응형 수정 */
 .hero {
-    background-color: #fff;
-    color: #333;
-    text-align: left;
-    padding: 90px 70px 180px;
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+    background-color: white;
+    padding: 60px;
 }
 
-.slideshow-container {
-    max-width: 100%;
-    position: relative;
-    margin: auto;
-}
-
-.slide {
-    display: none;
-}
-
-.slide img {
-    vertical-align: middle;
-    height: 600px; /* 슬라이드 이미지 높이 고정 */
-    object-fit: cover; /* 이미지 비율 유지하며 채우기 */
-}
-
-.text {
-    color: #f2f2f2;
-    font-size: 1.2rem;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0,0,0,0.5);
-    border-radius: 5px;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
-
-.hero-text {
-    position: static;
-    transform: none;
-    background: none;
-    padding: 0;
-    border-radius: 0;
+.hero-text .lead {
+    font-size: 36px;
+    color: var(--secondary-text-color);
+    margin: 0;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
-    margin: 0 0 1rem;
-    font-weight: 800;
+    font-size: clamp(40px, 8vw, 96px); /* 화면 크기에 따라 글자 크기 자동 조절 */
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    color: var(--secondary-text-color);
 }
 
-.hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+.hero-text .highlight {
+    color: var(--highlight-color);
 }
 
-.cta-button {
-    background-color: #f06595;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
+.hero-text p:last-child {
+    font-size: 18px;
+    margin-top: 20px;
 }
 
-.cta-button:hover {
-    background-color: #d6336c;
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-/* 푸터 */
-footer {
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #868e96;
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    height: 400px;
 }
+
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow-image.active {
+    opacity: 1;
+}
+
+/* 기능 카드 그리드 수정 */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card h2 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.feature-card h2 span {
+    color: var(--secondary-text-color);
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--secondary-text-color);
+    flex-grow: 1;
+}
+
+.feature-card a {
+    font-size: 24px;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+/* Guide Page 레이아웃 수정 */
+.guide-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sub-nav {
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+}
+
+.sub-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sub-nav a {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+}
+
+.sub-nav a.active {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+.guide-content section {
+    margin-bottom: 80px;
+    scroll-margin-top: 40px;
+}
+
+.guide-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.guide-content > p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.definition-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.definition-text p {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .guide-container {
+        grid-template-columns: 1fr;
+    }
+    .hero { padding: 30px; }
+    header { padding: 20px; }
+    .slideshow-container { height: 300px; }
+}
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 180px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    padding: 15px 0;
+    margin-top: 24px; 
+    border-radius: 4px; 
+    border: 1px solid var(--card-border-color);
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 8px 25px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    font-weight: bold;
+
+}
+
+
+nav ul > li > a:hover {
+    font-weight: bold;
+}
+
