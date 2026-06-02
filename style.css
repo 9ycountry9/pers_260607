@@ -141,17 +141,17 @@ header nav ul li a:hover::after {
 .hero {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align to the left */
+    justify-content: space-between;
     padding: 60px 5%;
-    background-color: #fff;
-    min-height: 60vh;
+    background-color: #f9f9f9;
+    min-height: 80vh;
     box-sizing: border-box;
-    text-align: left; /* Align text to the left */
 }
 
 .hero-text {
     flex: 1;
     max-width: 600px;
+    padding-right: 50px;
 }
 
 .hero-text p.lead {
@@ -185,7 +185,14 @@ header nav ul li a:hover::after {
 }
 
 .hero-image {
-    display: none; /* Hide the image container */
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Category Section Styles */
