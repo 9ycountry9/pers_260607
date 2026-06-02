@@ -9,23 +9,34 @@ body {
 
 /* Header Styles */
 header {
+    background: #fff;
+    height: 80px;
+    border-bottom: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
     padding: 0 5%;
-    background-color: white;
-    border-bottom: 1px solid #f0f0f0;
-    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo a {
+header .logo a {
+    color: #000;
+    text-decoration: none;
     font-size: 24px;
     font-weight: 700;
-    letter-spacing: 0;
+}
+.logo a {
     color: #000;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
 }
 
+.logo a span {
+    color: #b0b0b0;
+}
 header nav {
     position: absolute;
     left: 50%;
@@ -130,17 +141,18 @@ header nav ul li a:hover::after {
 .hero {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center the text now */
     padding: 60px 5%;
     background-color: #fff;
     min-height: 60vh;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .hero-text {
     flex: 1;
-    max-width: 50%;
-    padding-right: 5%;
+    max-width: 100%; /* Allow text to take full width */
+    padding-right: 0;
 }
 
 .hero-text p.lead {
@@ -174,14 +186,7 @@ header nav ul li a:hover::after {
 }
 
 .hero-image {
-    flex: 1;
-    max-width: 40%;
-    text-align: center;
-}
-
-.hero-image img {
-    max-width: 80%;
-    height: auto;
+    display: none; /* Hide the image container */
 }
 
 /* Category Section Styles */
