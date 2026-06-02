@@ -1,46 +1,48 @@
 /* General Styles */
+:root {
+    --background-color: #f8f8f8;
+    --text-color: #333;
+    --highlight-color: #000;
+    --secondary-text-color: #888;
+    --card-border-color: #e0e0e0;
+}
+
 body {
     font-family: 'Pretendard', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #333;
+    line-height: 1.5;
 }
 
 /* Header Styles */
 header {
-    background: #fff;
-    height: 80px;
-    border-bottom: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%;
+    padding: 24px 56px;
+    background-color: white;
+    border-bottom: 1px solid var(--card-border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-header .logo a {
-    color: #000;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: 700;
-}
 .logo a {
-    color: #000;
-    text-decoration: none;
-    font-size: 24px;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-size: 26px;
     font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--highlight-color);
 }
 
 .logo a span {
-    color: #b0b0b0;
+    color: #999;
 }
+
 header nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static; /* Override absolute positioning */
+    transform: none; /* Override transform */
 }
 
 header nav ul {
@@ -48,15 +50,16 @@ header nav ul {
     margin: 0;
     list-style: none;
     display: flex;
+    gap: 40px; /* Use gap for spacing */
 }
 
 header nav ul li {
-    margin: 0 20px;
+    margin: 0; /* Remove margin as gap is used */
     position: relative;
 }
 
 header nav ul li a {
-    color: #333;
+    color: var(--text-color);
     text-transform: uppercase;
     font-size: 16px;
     position: relative;
@@ -66,7 +69,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #000;
+    color: var(--highlight-color);
 }
 
 header nav ul li a::after {
@@ -76,7 +79,7 @@ header nav ul li a::after {
     height: 1px;
     bottom: -2px;
     left: 50%;
-    background-color: #333;
+    background-color: var(--text-color);
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -88,16 +91,16 @@ header nav ul li a:hover::after {
 .header-icons {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 
 .header-icons a {
-    margin-left: 25px;
-    color: #333;
+    color: var(--text-color);
     text-decoration: none;
 }
 
 .header-icons a:hover {
-    color: #000;
+    color: var(--highlight-color);
 }
 
 /* Dropdown Menu */
@@ -139,43 +142,39 @@ header nav ul li a:hover::after {
 
 /* Hero Section Styles */
 .hero {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
-    padding: 60px 5%;
-    background-color: #f9f9f9;
-    min-height: 80vh;
-    box-sizing: border-box;
+    gap: 40px;
+    padding: 60px 56px;
+    background-color: white;
 }
 
 .hero-text {
-    flex: 1;
-    max-width: 600px;
-    padding-right: 50px;
+    padding-right: 0;
 }
 
-.hero-text p.lead {
-    font-size: 28px;
-    font-weight: 400;
-    color: #888;
+.hero-text .lead {
+    font-size: 36px;
+    color: var(--secondary-text-color);
     margin: 0;
+    font-weight: 400;
 }
 
 .hero-text h1 {
-    font-size: 80px;
-    font-weight: 400;
+    font-size: clamp(40px, 8vw, 96px);
+    font-weight: bold;
     margin: 10px 0;
-    line-height: 1.1;
+    line-height: 1;
+    color: var(--secondary-text-color);
 }
 
 .hero-text h1 .highlight {
-    font-weight: 800;
-    color: #000;
+    color: var(--highlight-color);
 }
 
 .hero-text h1 .sub-highlight {
-    font-weight: 400;
-    color: #b0b0b0;
+    font-weight: normal; /* Adjust from bold to normal for 'onality' */
+    color: var(--secondary-text-color);
 }
 
 .hero-text p {
@@ -185,15 +184,9 @@ header nav ul li a:hover::after {
 }
 
 .hero-image {
-    flex: 1;
-    text-align: right;
+    display: none; 
 }
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
 
 /* Category Section Styles */
 .category-section {
@@ -270,4 +263,5 @@ footer {
 .lucide {
     width: 22px;
     height: 22px;
+    stroke: var(--text-color);
 }
