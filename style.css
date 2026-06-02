@@ -141,18 +141,17 @@ header nav ul li a:hover::after {
 .hero {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the text now */
+    justify-content: flex-start; /* Align to the left */
     padding: 60px 5%;
     background-color: #fff;
     min-height: 60vh;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left; /* Align text to the left */
 }
 
 .hero-text {
     flex: 1;
-    max-width: 100%; /* Allow text to take full width */
-    padding-right: 0;
+    max-width: 600px;
 }
 
 .hero-text p.lead {
