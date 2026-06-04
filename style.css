@@ -65,11 +65,9 @@ nav a.active {
     height: 20px;
     stroke: var(--text-color);
 }
-/* 메인 콘텐츠 영역*/
+
 main {
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 40px 56px;
 }
 
 /* Hero 섹션 반응형 수정 */
@@ -238,6 +236,7 @@ main {
     }
     .hero { padding: 30px; }
     header { padding: 20px; }
+    main { padding: 20px; }
     .slideshow-container { height: 300px; }
 }
 .dropdown {
