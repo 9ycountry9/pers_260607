@@ -4,34 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>향수 탐색 - pers.</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html">pers<span>.</span></a></div>
+        <div class="logo">
+            <a href="index.html">
+                pers<span>.</span>
+            </a>
+        </div>
         <nav>
             <ul>
                 <li><a href="fashion.html">패션</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropbtn">향수</a>
+                    <a href="#">향수</a>
                     <div class="dropdown-content">
                         <a href="perfume-guide.html">향수 가이드</a>
                         <a href="perfume-search.html">향수 탐색</a>
                         <a href="perfume-community.html">커뮤니티</a>
                     </div>
                 </li>
-                <li><a href="#nail">네일</a></li>
+                <li><a href="#">네일</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <div class="container">
-            <h1>향수 탐색</h1>
-            <p>향수 탐색 페이지입니다. 여기에 향수 탐색 관련 콘텐츠가 표시됩니다.</p>
+        <div class="icons">
+            <a href="#"><i data-lucide="search"></i></a>
+            <a href="#"><i data-lucide="bookmark"></i></a>
+            <a href="#"><i data-lucide="user"></i></a>
         </div>
+    </header>
+
+    <main class="search-page">
+        <section class="search-header">
+            <div class="container">
+                <h1>향수 탐색</h1>
+                <p>당신에게 가장 잘 어울리는 향을 찾아보세요.</p>
+                <div class="search-bar-container">
+                    <input type="text" id="perfume-search-input" placeholder="향수 이름, 브랜드, 노트를 검색하세요...">
+                    <button type="button" id="search-button"><i data-lucide="search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-content">
+            <div class="container search-layout">
+                <aside class="filters">
+                    <div class="filter-group">
+                        <h3>계열</h3>
+                        <div class="filter-options">
+                            <label><input type="checkbox" name="scent" value="citrus"> 시트러스</label>
+                            <label><input type="checkbox" name="scent" value="floral"> 플로럴</label>
+                            <label><input type="checkbox" name="scent" value="woody"> 우디</label>
+                            <label><input type="checkbox" name="scent" value="oriental"> 오리엔탈</label>
+                            <label><input type="checkbox" name="scent" value="musk"> 머스크</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>성별</h3>
+                        <div class="filter-options">
+                            <label><input type="radio" name="gender" value="all" checked> 전체</label>
+                            <label><input type="radio" name="gender" value="women"> 여성</label>
+                            <label><input type="radio" name="gender" value="men"> 남성</label>
+                            <label><input type="radio" name="gender" value="unisex"> 유니섹스</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>가격</h3>
+                        <div class="filter-options">
+                            <label><input type="radio" name="price" value="all" checked> 전체</label>
+                            <label><input type="radio" name="price" value="under-10"> 10만원 이하</label>
+                            <label><input type="radio" name="price" value="10-20"> 10-20만원</label>
+                            <label><input type="radio" name="price" value="over-20"> 20만원 이상</label>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="results-area">
+                    <div class="results-header">
+                        <span id="results-count">4개의 향수</span>
+                        <select id="sort-select">
+                            <option value="newest">신상품순</option>
+                            <option value="price-low">가격 낮은순</option>
+                            <option value="price-high">가격 높은순</option>
+                            <option value="popularity">인기순</option>
+                        </select>
+                    </div>
+                    <div class="perfume-grid" id="perfume-results">
+                        <!-- Perfume cards will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 pers. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 pers. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
