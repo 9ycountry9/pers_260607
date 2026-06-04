@@ -10,19 +10,38 @@ function showSlides() {
     }
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
+    if(slides.length > 0) {
+      slides[slideIndex-1].style.display = "block";
+    }
     setTimeout(showSlides, 5000); // 5초마다 이미지 변경
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownContent = document.querySelector('.dropdown-content');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdown.addEventListener('mouseenter', function () {
-        dropdownContent.style.display = 'block';
+    dropdowns.forEach(dropdown => {
+        const dropbtn = dropdown.querySelector('.dropbtn');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+        dropbtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            const isVisible = dropdownContent.style.display === 'block';
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            // Open the clicked dropdown if it was not visible
+            if (!isVisible) {
+                dropdownContent.style.display = 'block';
+            }
+        });
     });
 
-    dropdown.addEventListener('mouseleave', function () {
-        dropdownContent.style.display = 'none';
+    window.addEventListener('click', function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.style.display = 'none';
+            });
+        }
     });
 });
