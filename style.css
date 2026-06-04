@@ -65,9 +65,11 @@ nav a.active {
     height: 20px;
     stroke: var(--text-color);
 }
-
+/* 메인 콘텐츠 영역*/
 main {
     padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Hero 섹션 반응형 수정 */
@@ -253,6 +255,8 @@ main {
     margin-top: 24px; 
     border-radius: 4px; 
     border: 1px solid var(--card-border-color);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
@@ -278,4 +282,3 @@ main {
 nav ul > li > a:hover {
     font-weight: bold;
 }
-
