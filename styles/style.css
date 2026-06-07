@@ -14,7 +14,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
-    line-height: 1.5; /* 가독성을 위해 추가 */
+    line-height: 1.6;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -24,12 +24,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 56px; /* 오타 수정: 24x -> 24px */
+    padding: 24px 56px;
     background-color: white;
     border-bottom: 1px solid var(--card-border-color);
 }
 
-/* 로고 스타일 보강 */
 .logo a {
     font-family: 'Inter', 'Pretendard', sans-serif;
     font-size: 26px;
@@ -60,7 +59,6 @@ nav a.active {
     gap: 20px;
 }
 
-/* Lucide 아이콘 색상 및 크기 조정 */
 .icons i {
     width: 20px;
     height: 20px;
@@ -71,7 +69,6 @@ main {
     padding: 40px 56px;
 }
 
-/* Hero 섹션 반응형 수정 */
 .hero {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -89,7 +86,7 @@ main {
 }
 
 .hero-text h1 {
-    font-size: clamp(40px, 8vw, 96px); /* 화면 크기에 따라 글자 크기 자동 조절 */
+    font-size: clamp(40px, 8vw, 96px);
     font-weight: bold;
     margin: 0;
     line-height: 1;
@@ -111,7 +108,6 @@ main {
     border-radius: 8px;
 }
 
-/* Slideshow */
 .slideshow-container {
     position: relative;
     height: 400px;
@@ -132,7 +128,6 @@ main {
     opacity: 1;
 }
 
-/* 기능 카드 그리드 수정 */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -148,98 +143,112 @@ main {
     flex-direction: column;
 }
 
-.feature-card h2 {
-    font-size: 20px;
-    margin: 0 0 10px 0;
-}
-
-.feature-card h2 span {
-    color: var(--secondary-text-color);
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.feature-card p {
-    margin: 0;
-    color: var(--secondary-text-color);
-    flex-grow: 1;
-}
-
-.feature-card a {
-    font-size: 24px;
-    margin-top: 20px;
-    align-self: flex-end;
-}
-
-/* Guide Page 레이아웃 수정 */
-.guide-container {
+/* New Guide Page Styles */
+.guide-page .guide-container {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 60px;
-    padding: 40px 20px;
-    max-width: 1200px;
+    padding: 60px 56px;
+    max-width: 1400px;
     margin: 0 auto;
+    align-items: start;
 }
 
-.sub-nav {
+.guide-page .guide-nav {
     position: sticky;
-    top: 40px;
-    height: fit-content;
+    top: 60px;
+    height: calc(100vh - 120px);
 }
 
-.sub-nav ul {
+.guide-page .guide-nav h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+    color: var(--highlight-color);
+}
+
+.guide-page .guide-nav ul {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
-.sub-nav a {
+.guide-page .guide-nav a {
     font-size: 16px;
     color: var(--secondary-text-color);
+    padding: 5px 0;
+    display: block;
+    transition: color 0.2s, font-weight 0.2s;
 }
 
-.sub-nav a.active {
+.guide-page .guide-nav a:hover, 
+.guide-page .guide-nav a.active {
     font-weight: bold;
     color: var(--highlight-color);
 }
 
-.guide-content section {
-    margin-bottom: 80px;
-    scroll-margin-top: 40px;
+.guide-page .guide-content section {
+    margin-bottom: 60px;
+    scroll-margin-top: 80px;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border-color);
 }
 
-.guide-content h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
+.guide-page .guide-content h3 {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid var(--card-border-color);
+    padding-bottom: 15px;
 }
 
-.guide-content > p {
+.guide-page .guide-content p,
+.guide-page .guide-content li {
     font-size: 16px;
     line-height: 1.8;
     color: var(--text-color);
 }
 
-.definition-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    align-items: center;
+.guide-page .guide-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 20px;
 }
 
-.definition-text p {
-    margin-bottom: 20px;
+.guide-page .guide-content ul li {
+    margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-    .guide-container {
+.guide-page .guide-content ul li strong {
+    font-weight: 600;
+    color: var(--highlight-color);
+}
+
+@media (max-width: 900px) {
+    .guide-page .guide-container {
         grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 24px;
     }
-    .hero { padding: 30px; }
-    header { padding: 20px; }
-    main { padding: 20px; }
-    .slideshow-container { height: 300px; }
+    .guide-page .guide-nav {
+        position: static;
+        height: auto;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--card-border-color);
+        padding-bottom: 20px;
+    }
+    .guide-page .guide-nav h2 {
+        margin-bottom: 20px;
+    }
+    .guide-page .guide-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+    }
+
 }
+
 .dropdown {
     position: relative;
 }
