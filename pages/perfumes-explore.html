@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Perfumes</title>
+    <title>Explore Perfumes - pers.</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="https://unpkg.com/lucide@latest"><\/script>
 </head>
 <body class="explore-page">
+
     <header>
-        <h1>Explore Perfumes</h1>
+        <div class="logo">
+            <a href="../index.html">pers<span>.</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">패션</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">향수</a>
+                    <div class="dropdown-content">
+                        <a href="./perfume-guide.html">Perfume Guide</a>
+                        <a href="./perfumes-explore.html">Explore</a>
+                        <a href="./perfume-community.html">Community</a>
+                    </div>
+                </li>
+                <li><a href="#">네일</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <i data-lucide="search"></i>
+            <i data-lucide="user"></i>
+        </div>
     </header>
+
     <main>
-        <p>This is the explore perfumes page.</p>
+        <h1>Explore Perfumes</h1>
+        <p>This is the explore perfumes page. Content will be added later.</p>
     </main>
+
+<script>
+    lucide.createIcons();
+<\/script>
 </body>
 </html>
